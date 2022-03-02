@@ -78,5 +78,48 @@ function vEmployees(){
     })
 }
 
+function addDepartment(department) {
+    const questions = [
+        {
+        type: "input",
+        name: "department_name",
+        message: "What is the name of the department?"
+        }
+    ]
+    inquirer.prompt(questions)
+        
+      .then(res => {
+          db.query(`INSERT INTO department SET ?`, res)
+          firstAction()
+      }
+        )
+}
+
+function addRole(department) {
+    const questions = [
+        {
+        type: "input",
+        name: "role_title",
+        message: "What title do you bestow?"
+        },
+        {
+        type: "input",
+        name: "role_salary",
+        message: "How much do you want to pay them?"
+        },
+        {
+        type: "input",
+        name: "role_title",
+        message: "What title do you bestow?"
+        }
+    ]
+    inquirer.prompt(questions)
+        
+      .then(res => {
+          db.query(`INSERT INTO department SET ?`, res)
+          firstAction()
+      }
+        )
+}
 
 firstAction()
