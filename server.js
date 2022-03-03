@@ -151,7 +151,7 @@ function addEmployee(department) {
         )
 }
 
-function updateRole(department) {
+function updateRole(employee) {
     const questions = [
         {
         type: "input",
@@ -167,7 +167,7 @@ function updateRole(department) {
     inquirer.prompt(questions)
         
       .then(res => {
-          db.query(`UPDATE employee SET role_id = ? WHERE id = ?`, res)
+          db.query(`UPDATE employee SET role_id = ? WHERE id = ?`, res.role_id, res.id)        
           firstAction()
       }
         )
